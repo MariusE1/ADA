@@ -1,3 +1,4 @@
+==========================================================================================================================================
 Correcting Previous Mistakes from Imbalanced Datasets:
 
 1. Never test on the oversampled or undersampled dataset.
@@ -5,3 +6,5 @@ Correcting Previous Mistakes from Imbalanced Datasets:
 3. Don't use accuracy score as a metric with imbalanced datasets (will be usually high and misleading), instead use f1-score, precision/recall score or confusion matrix
 
 from: https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets
+
+==========================================================================================================================================
