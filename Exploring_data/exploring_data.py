@@ -36,6 +36,8 @@ plt.close()
 
 
 #we look at timing of the transactions for each class
+
+#Graph of Time fraud transactions
 plt.hist(fraud.Time, color="lightcoral")
 plt.title("Timing of fraud transactions")
 plt.xlabel('Time (in Seconds since first transaction)')
@@ -44,7 +46,7 @@ plt.savefig("timing_fraud.png")
 plt.show()
 plt.close()
 
-
+#Graph of Time genuine transactions
 plt.hist(genuine.Time, color="mediumaquamarine")
 plt.title("Timing of genuine transactions")
 plt.xlabel('Time (in Seconds since first transaction)')
