@@ -9,8 +9,6 @@ import seaborn as sn #allows us to do nice correlation matrices.
 
 from sklearn.preprocessing import StandardScaler
 
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedShuffleSplit
 
 os.system("clear")
 
