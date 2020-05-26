@@ -1,4 +1,28 @@
-import itertools
+from sklearn.metrics import confusion_matrix
+from imblearn.over_sampling import SMOTE
+
+os = SMOTE(random_state=0)
+
+X = data_final.loc[:, data_final.columns != 'y']
+y = data_final.loc[:, data_final.columns == 'y']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+columns = X_train.columns
+# Logistic Regression fitted using SMOTE technique
+y_pred_log_reg = log_reg_sm.predict(X_test)
+
+
+log_reg_cf = confusion_matrix(y_test, y_pred_log_reg)
+
+fig, ax = plt.subplots(2, 2,figsize=(22,12))
+
+
+sns.heatmap(log_reg_cf, ax=ax[0][0], annot=True, cmap=plt.cm.copper)
+ax[0, 0].set_title("Logistic Regression \n Confusion Matrix", fontsize=14)
+ax[0, 0].set_xticklabels(['', ''], fontsize=14, rotation=90)
+ax[0, 0].set_yticklabels(['', ''], fontsize=14, rotation=360)
+
+"""import itertools
 import matplotlib.cm as plt
 import numpy as np
 
@@ -6,10 +30,10 @@ def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title='Confusion matrix',
                           cmap=plt.cm.Blues):
-    """
-    This function prints and plots the confusion matrix.
-    Normalization can be applied by setting `normalize=True`.
-    """
+    
+ ##   This function prints and plots the confusion matrix.
+ ##   Normalization can be applied by setting `normalize=True`.
+    
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -34,3 +58,4 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
+    """
